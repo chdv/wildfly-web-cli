@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="/WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <h:commandButton value="Сохранить" action="#{propertiesSessionBean.save}" class="button"/>
+                    &nbsp;
+                    <h:commandButton action="index?faces-redirect=true" value="Назад"  class="button"/>
+                    <ui:repeat value="#{propertiesSessionBean.mapProperties.entrySet().toArray()}" var="entry">
+                        <h3>#{entry.key}</h3>
+                        <h:dataTable value="#{entry.value}" var="c" styleClass="data_table" columnClasses="column_1, column_2, column_3">
+                            <h:column>#{c.key}</h:column>
+                            <h:column><h:inputText value="#{c.value}" size="35" /></h:column>
+                            <h:column>#{c.description}</h:column>
+                        </h:dataTable>
+                    </ui:repeat>
+                    <h:commandButton value="Сохранить" action="#{propertiesSessionBean.save}" class="button"/>
+                    &nbsp;
+                    <h:commandButton action="index?faces-redirect=true" value="Назад" class="button"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

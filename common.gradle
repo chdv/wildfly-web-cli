@@ -1,0 +1,10 @@
+ext {
+    projectGroup = 'com.dch.settings'
+    projectVersion = '1.0-SNAPSHOT'
+    subProjectsPrefix = 'cli'
+
+    remoteDeployHost = '127.0.0.1'
+    remoteDeployName = 'admin'
+    remoteDeployPassword = 'manager'
+
+}

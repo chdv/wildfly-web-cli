@@ -1,0 +1,83 @@
+apply plugin: 'ear'
+apply plugin: 'cargo'
+apply from: 'common.gradle'
+
+group = projectGroup
+version = projectVersion
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+subprojects {
+    group = projectGroup
+    version = projectVersion
+    String name = project.name.replaceAll('/', '-')
+    tasks.withType(Jar) {
+        baseName = "$subProjectsPrefix-$name"
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply from: '../common.gradle'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    [ compileJava, compileTestJava ]*.options*.encoding = 'UTF-8'
+
+    test {
+        useTestNG()
+    }
+}
+
+dependencies {
+    deploy project(path: ':web', configuration: 'archives')
+
+    cargo 'org.wildfly:wildfly-controller-client:8.2.1.Final'
+    cargo 'org.codehaus.cargo:cargo-ant:1.4.5'
+}
+
+
+ear {
+    appDirName 'META-INF'
+
+    deploymentDescriptor {
+        applicationName = "$project.name-$project.version"
+        initializeInOrder = false
+        displayName = "$project.name-$project.version"
+        webModule("$subProjectsPrefix-web-${projectVersion}.war", "/$subProjectsPrefix")
+    }
+
+    from('ear'){
+        include 'META-INF/*.xml'
+    }
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://repository.jboss.org/nexus/content/groups/public' }
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-cargo-plugin:1.4'
+    }
+}
+
+
+cargo {
+    containerId = 'wildfly8x'
+
+    remote {
+        hostname = remoteDeployHost
+        username = remoteDeployName
+        password = remoteDeployPassword
+    }
+
+}
+

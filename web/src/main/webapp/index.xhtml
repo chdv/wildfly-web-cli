@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="/WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h:link value="Загрузка модулей" outcome="modules-install" /><br/>
+                <h:link value="Исполнение скриптов" outcome="script" /><br/>
+                <h:link value="Обновить конфигурацию Wildfly" outcome="reload" /><br/>
+                <h:link value="Перезапустить Wildfly" outcome="restart" /><br/>
+                <br/>
+                <h:form>
+                    <h:commandLink value="Выход" action="#{loginBean.exit}"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
