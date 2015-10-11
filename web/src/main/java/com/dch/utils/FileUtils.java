@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by pixel on 30.08.2015.
+ * Created by dcherdyntsev on 30.08.2015.
  */
 public class FileUtils {
 

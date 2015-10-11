@@ -8,7 +8,7 @@ import javax.inject.Named;
 import java.io.IOException;
 
 /**
- * Created by pixel on 01.09.2015.
+ * Created by dcherdyntsev on 01.09.2015.
  */
 @Named
 @RequestScoped

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by pixel on 03.09.2015.
+ * Created by dcherdyntsev on 03.09.2015.
  */
 @WebFilter("*.xhtml")
 public class LoginFilter implements Filter {

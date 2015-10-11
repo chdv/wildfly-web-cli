@@ -1,7 +1,7 @@
 package com.dch.utils;
 
 /**
- * Created by pixel on 29.07.2015.
+ * Created by dcherdyntsev on 29.07.2015.
  */
 public class TextUtils {
 

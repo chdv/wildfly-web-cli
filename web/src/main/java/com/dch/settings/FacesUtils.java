@@ -4,7 +4,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by pixel on 02.09.2015.
+ * Created by dcherdyntsev on 02.09.2015.
  */
 public class FacesUtils {
 

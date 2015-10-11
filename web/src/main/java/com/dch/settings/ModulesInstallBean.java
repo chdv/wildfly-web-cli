@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by pixel on 31.08.2015.
+ * Created by dcherdyntsev on 31.08.2015.
  */
 @Named
 @SessionScoped
